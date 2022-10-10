@@ -1,5 +1,7 @@
 package com.pw;
 
+import java.util.Date;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -25,6 +27,8 @@ public class Application extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
+        
+        System.out.println("Top of main: " + new Date());
         SpringApplication.run(Application.class, args);
     }
     
