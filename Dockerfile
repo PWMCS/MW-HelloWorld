@@ -4,7 +4,8 @@ COPY pom.xml .
 COPY src src
 RUN mvn clean package
 FROM tomcat:latest
-COPY --from=0 /build/target/maven-generate-war.war webapps/
+RUN mkdir /usr/local/tomcat/webapps-javaee
+COPY --from=0 /build/target/maven-generate-war.war webapps-javaee/
 RUN chgrp -R 0 /usr/local/tomcat && chmod -R g=u /usr/local/tomcat
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
