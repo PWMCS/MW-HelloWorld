@@ -28,8 +28,12 @@ public class Application extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
+        final String rootContext = "/";
         
-        System.out.println("Top of main: " + new Date());
+        System.out.println("Top of main: " + new Date() + ". Root context=" + rootContext);
+        
+        // https://www.baeldung.com/spring-boot-context-path
+        System.setProperty("server.servlet.context-path", rootContext);
         SpringApplication.run(Application.class, args);
     }
     
